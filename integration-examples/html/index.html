@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваше приложение</title>
+    
+    <!-- ВАЖНО: CSP мета-тег для WebRTC интеграции -->
+    <!-- Разрешает WebSocket соединения и медиа потоки -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' http: https: data: blob: 'unsafe-inline'; connect-src 'self' http: https: wss: ws: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' http: https:; style-src 'self' 'unsafe-inline' http: https:; img-src 'self' data: blob: http: https:; media-src 'self' data: blob: http: https:;">
+    
+    <!-- Другие мета-теги -->
+    <meta name="description" content="Ваше приложение с WebRTC интеграцией">
+    <meta name="theme-color" content="#667eea">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Стили -->
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Ваше приложение -->
+        <h1>Добро пожаловать!</h1>
+        <p>WebRTC интеграция готова к использованию.</p>
+    </div>
+    
+    <!-- Скрипты -->
+    <script src="/js/app.js"></script>
+    
+    <!-- Пример использования WebRTC API -->
+    <script>
+        // Пример вызова звонка
+        function callUser(userId, callType = 'video') {
+            if (window.callUser) {
+                window.callUser(userId, callType);
+            } else {
+                console.error('WebRTC API не загружен');
+            }
+        }
+        
+        // Пример завершения звонка
+        function endCall(callId) {
+            if (window.endCall) {
+                window.endCall(callId);
+            } else {
+                console.error('WebRTC API не загружен');
+            }
+        }
+    </script>
+</body>
+</html>
